@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "User can submit links" do
+RSpec.describe "User can submit links", js: true do
   scenario "with valid urls" do
     user = create_user
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
@@ -14,6 +14,12 @@ RSpec.describe "User can submit links" do
     end
 
     expect(current_path).to eq(links_path)
+
+    within(".links-list") do
+      expect(page).to have_content("First Link")
+    end
+
+    driver.navigate.refresh
 
   end
 end
