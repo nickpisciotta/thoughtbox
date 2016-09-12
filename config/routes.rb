@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   get '/users/new', to: 'users#new', as: :new_user
   post '/users', to: 'users#create'
 
-  resources :links, only: [:index, :create]
-
   namespace :api do
     namespace :v1 do
       resources :links, only: [:update, :index]
     end
-  end 
+  end
+
+  resources :links, only: [:index]
 end
