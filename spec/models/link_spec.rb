@@ -5,12 +5,15 @@ RSpec.describe Link, type: :model do
     it { is_expected.to validate_presence_of(:url) }
 
     it "should not validate invalid format urls" do
-      link = Link.new(title: "Title", url: "notvalid")
+      user = create_user
+      link = user.links.new(title: "Title", url: "notvalid")
       expect(link.valid?).to_not eq(true)
     end
 
     it "should validate valid format urls" do
-      link = Link.new(title: "Valid Title", url: "http://goole.com")
+      user = create_user
+      link = user.links.create("title" => "will work", "url" => "www.amazon.com")
+      expect(link.valid?).to eq(true)
     end
   end
 

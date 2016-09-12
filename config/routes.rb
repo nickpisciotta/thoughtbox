@@ -10,4 +10,10 @@ Rails.application.routes.draw do
   post '/users', to: 'users#create'
 
   resources :links, only: [:index, :create]
+
+  namespace :api do
+    namespace :v1 do
+      resources :links, only: [:update, :index]
+    end
+  end 
 end
