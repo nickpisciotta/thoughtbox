@@ -16,5 +16,11 @@ RSpec.feature "User can sign up" do
     end
 
     expect(current_path).to eq(links_path)
+
+    within(".navbar") do
+      expect(page).to_not have_link("Log In")
+      expect(page).to_not have_link("Sign Up")
+      expect(page).to have_link("Logout")
+    end
   end
 end
