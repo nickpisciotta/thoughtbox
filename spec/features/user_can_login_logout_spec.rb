@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "User can login" do
-  scenario "with valid email and password" do
+RSpec.feature "User cannot login" do
+  scenario "with invalid email and password" do
     visit root_path
 
     within('.navbar') do
@@ -13,5 +13,11 @@ RSpec.feature "User can login" do
     click_on "Login"
 
     expect(current_path).to eq(login_path)
+
+    within('.login-form') do
+      fill_in "session[email]", with: "test@email.com"
+      fill_in "session[password]", with: "password"
+      click_on "Log In"
+    end
   end
 end
