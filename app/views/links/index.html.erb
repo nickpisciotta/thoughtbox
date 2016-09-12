@@ -1,0 +1,15 @@
+<div class='link-form'>
+  <%= form_for(:link, url: links_path) do |f| %>
+    <%= f.text_field :title, placeholder: "Title" %>
+    <%= f.text_field :url, placeholder: "Url" %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+
+<div class="links-list">
+  <% if current_user.links %>
+    <ul>
+    </ul>
+  <% end %>
+</div>
