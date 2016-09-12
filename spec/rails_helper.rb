@@ -32,6 +32,11 @@ def create_user
   User.create(email: "test", password: "password", password_confirmation: "password")
 end
 
+def create_link
+  user = create_user
+  user.links.create(title: "Test", url: "www.google.com")
+end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
