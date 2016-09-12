@@ -52,7 +52,12 @@ $(document).ready(function() {
     return html =
     '<div class="link ' + status + ' ' + '" id=' + data.id + '>' +
     '<span class="title">' + title + "</span>" + ': ' +
-    url + statusButton(data) + '</div>';
+    url + statusButton(data) + editButton(data) + '</div>';
+  }
+
+  var editButton = function(data) {
+    return '<a href="/links/' + data.id + '/edit">' +
+    '<button class="edit">Edit</button></a>'
   }
 
   var appendLink = function(id, html) {
