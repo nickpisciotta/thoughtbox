@@ -3,6 +3,17 @@ class LinksController < ApplicationController
   def index
   end
 
+  def edit
+    byebug
+    @link = Link.find(params[:id])
+  end
+
+  def update
+    @link = Link.find(params[:id])
+    @link.update_attributes(link_params)
+    redirect_to links_path
+  end
+
   def create
     @link = Link.new(link_params)
     @link.user_id = current_user.id

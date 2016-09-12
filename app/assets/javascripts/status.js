@@ -57,7 +57,7 @@ $(document).ready(function() {
 
   var editButton = function(data) {
     return '<a href="/links/' + data.id + '/edit">' +
-    '<button class="edit">Edit</button></a>'
+    '<button class="edit">Edit</button></a>';
   }
 
   var appendLink = function(id, html) {

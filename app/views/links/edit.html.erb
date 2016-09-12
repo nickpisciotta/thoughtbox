@@ -1,0 +1,9 @@
+<h1>Edit This Link</h1>
+
+<div class="edit-link-form">
+   <%= form_for(@link, url: link_path) do |f| %>
+    <%= f.text_field :title %>
+    <%= f.text_field :url %>
+    <%= f.submit %>
+  <% end %>
+</div>
