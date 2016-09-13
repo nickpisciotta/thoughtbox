@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   end
 
   def edit
-    byebug
+
     @link = Link.find(params[:id])
   end
 
@@ -25,9 +25,6 @@ class LinksController < ApplicationController
     end
   end
 
-  def edit
-
-  end
 
   private
     def link_params
