@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+#SPlit creating user method into helper method
 RSpec.feature "User can edit links", js: true do
   scenario "Change title and url" do
     visit new_user_path

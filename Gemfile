@@ -24,6 +24,8 @@ gem 'rails_12factor'
 gem 'bcrypt'
 gem 'database_cleaner'
 gem 'valid_url'
+gem 'bootstrap-sass', '~> 3.3.6'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
