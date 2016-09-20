@@ -27,9 +27,9 @@ RSpec.feature "User can edit links", js: true do
       click_button("Edit")
     end
 
-    expect(page).to have_current_path('/links/1/edit')
+    expect(page).to have_current_path('/links/2/edit')
 
-    within(".edit_link_form") do
+    within(".edit-link-form") do
       fill_in :link_title, with: "Updated"
       fill_in :link_url, with: "https://newwebsite.com"
 
