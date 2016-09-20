@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
      session[:user_id] = @user.id
      redirect_to links_path
    else
+     flash.now[:error] = "Invalid Login"
      render :new
    end
  end

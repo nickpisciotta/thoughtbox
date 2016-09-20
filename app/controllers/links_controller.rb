@@ -1,10 +1,10 @@
 class LinksController < ApplicationController
+  before_action :authenticate
 
   def index
   end
 
   def edit
-
     @link = Link.find(params[:id])
   end
 
@@ -20,7 +20,7 @@ class LinksController < ApplicationController
     if @link.save
       redirect_to links_path
     else
-      flash.now[:error] = @link.errors[:url].first
+      flash.now[:error] = @link.title + " " + @link.errors[:url].first
       render :index
     end
   end
@@ -29,5 +29,9 @@ class LinksController < ApplicationController
   private
     def link_params
       params.require(:link).permit(:title, :url)
+    end
+
+    def authenticate
+      redirect_to(login_path) unless current_user
     end
 end

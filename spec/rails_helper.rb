@@ -32,6 +32,16 @@ def create_user
   User.create(email: "test", password: "password", password_confirmation: "password")
 end
 
+def sign_up_user
+  within('.user_form') do
+    fill_in 'user[email]', with: 'fake@email.com'
+    fill_in 'user[password]', with: 'password'
+    fill_in 'user[password_confirmation]', with: 'password'
+    click_button('Sign Up')
+  end
+end
+
+
 def create_link
   user = create_user
   user.links.create(title: "Test", url: "www.google.com")
