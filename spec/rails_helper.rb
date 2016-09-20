@@ -41,6 +41,15 @@ def sign_up_user
   end
 end
 
+def sign_up_second_user
+  within('.user_form') do
+    fill_in 'user[email]', with: 'second@email.com'
+    fill_in 'user[password]', with: 'password'
+    fill_in 'user[password_confirmation]', with: 'password'
+    click_button('Sign Up')
+  end
+end
+
 
 def create_link
   user = create_user
