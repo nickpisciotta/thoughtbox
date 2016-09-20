@@ -20,4 +20,17 @@ RSpec.describe Link, type: :model do
   context "Associations" do
     it { should belong_to(:user) }
   end
+
+  context "#change_status" do
+    it "should change link read status" do
+      user = create_user
+      link  = user.links.create("title" => "will work", "url" => "www.amazon.com")
+
+      expect(link.read).to eq(false)
+
+      link.change_status
+
+      expect(link.read).to eq(true)
+    end 
+  end
 end
