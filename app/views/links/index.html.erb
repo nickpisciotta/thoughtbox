@@ -1,23 +1,29 @@
-<div class='link-form'>
-  <%= form_for(:link, url: links_path) do |f| %>
-    <%= f.text_field :title, placeholder: "Title" %>
-    <%= f.text_field :url, placeholder: "Url" %>
-    <%= f.submit %>
-  <% end %>
-</div>
+<div class="container">
+  <h2>Add Link</h2>
+  <div class='link-form'>
+    <%= form_for(:link, url: links_path) do |f| %>
+      <%= f.text_field :title, placeholder: "Title" %>
+      <%= f.text_field :url, placeholder: "Url" %>
+      <%= f.submit %>
+    <% end %>
+  </div><br>
 
-<div class="filters">
-  <button id='all-read'>Show Read</button>
-  <button id='all-unread'>Show Unread</button>
-  <button id='reset'>Show All</button>
-  <button id='alphabet'>Sort Alphabetically</button>
-</div>
+  <h2>Filter Links</h2>
+  <div class="filters">
+    <input id="search" placeholder="Search">
+    <button id='all-read'>Show Read</button>
+    <button id='all-unread'>Show Unread</button>
+    <button id='reset'>Show All</button>
+    <button id='alphabet'>Sort Alphabetically</button>
+  </div><br>
 
-<div class="links-list">
-  <% if current_user.links %>
-    <ul>
-    </ul>
-  <% else %>
-    <p> No Links Have Been Added </p>
-  <% end %>
+  <h2>All Links</h2>
+  <div class="links-list">
+    <% if current_user.links %>
+      <ul>
+      </ul>
+    <% else %>
+      <p> No Links Have Been Added </p>
+    <% end %>
+  </div>
 </div>
