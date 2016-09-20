@@ -1,11 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "User can submit links", js: true do
+RSpec.describe "User submit links", js: true do
   scenario "with valid urls" do
-    user = create_user
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    visit root_path
 
-    visit links_path
+    click_on "Sign Up"
+
+    sign_up_user
 
     within(".link-form") do
       fill_in "link[title]", with: "First Link"
@@ -19,7 +20,7 @@ RSpec.describe "User can submit links", js: true do
       expect(page).to have_content("First Link")
     end
 
-    driver.navigate.refresh
-
+    click_on "Log Out"
   end
+
 end
